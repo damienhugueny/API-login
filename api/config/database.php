@@ -1,9 +1,9 @@
-<?php
+<?php session_start();
 class Database{
  
     // specify your own database credentials
     private $host = "localhost";
-    private $db_name = "PHPLearning";
+    private $db_name = "GALOAP";
     private $username = "root";
     private $password = "Ereul9Aeng";
     public $conn;

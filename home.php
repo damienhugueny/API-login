@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <title>home</title>
 </head>
 <body>
@@ -25,38 +26,53 @@
 
 
     <header>
-    <!-- TODO LE MENU-->
-    <form class="sign-in-htm" action="./api/user/Logout.php" method="POST">
-    <div class="group">
-          <input type="submit" class="button" value="Log out">
+        <div class="container__nav">
+
+            <div>
+                <h4>Bienvenue <?=$_SESSION['name']?></h4>
+            </div>
+            <div>
+                <form action="./api/user/Logout.php" method="POST">
+
+                    <input class="Logout__btm" type="submit" class="button" value="Se déconnecter">
+
+                </form>
+            </div>
+       
         </div>
+    <!-- TODO LE MENU-->
+   
+
     </header>
+        
+
 
     <main>
-    
-    </form>
-        <?php include 'template/showChevaux-tpl.php' ?>
-    
-        <form class="sign-in-htm" action="./api/cheval/addCheval.php" method="POST">
-        <div class="group">
-          <label for="chevalname" class="label">Nom du cheval</label>
-          <input id="chevalname" name="chevalname" type="text" class="input">
-          <div class="group">
-          <input type="submit" class="button" value="Ajouter">
+        <div class="container">
+         <?php include 'template/showChevaux-tpl.php' ?>
         </div>
-        </div>
-        </form>
+
        
-        <?php include './template/showRemove-tpl.php' ?>
 
+        <?php //include 'template/addChevaux-tpl.php' ?>
+        
+        <?php //include './template/showRemove-tpl.php' ?>
 
+        <?php //include './template/addEventChevaux-tpl.php' ?>
     </main>
 
-
-
-
+    
     <footer>
     <!-- TODO LE FOOTER-->
+        <div class="AddCheval">
+        <?php include 'template/addChevaux-tpl.php' ?>
+        </div>
+
+        <button class="accordion">+</button>
+
+
     </footer>
+
+    <script src="./script/scriptAccordeon.js"></script>
 </body>
 </html>

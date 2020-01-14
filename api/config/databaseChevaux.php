@@ -21,7 +21,8 @@ try {
 
 
 //lLE NOM DE USERNAME EST DANS $SESSION SUPER GLOBALE
-$sql ='SELECT cheval FROM chevaux WHERE propriétaire ="'.$_SESSION["name"].'"';
+$sql ='SELECT cheval, created, id FROM chevaux WHERE propriétaire ="'.$_SESSION["name"].'"';
+
 // PDO transmet cette requete a Mysql
 $queryResult = $pdo ->query($sql);
 // on va récupérer les résultats depuis $queryResult
@@ -38,4 +39,4 @@ $chevauxList = $queryResult ->fetchAll(PDO::FETCH_ASSOC);
     echo "COUCOU";
    
 }*/
-?>
+

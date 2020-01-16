@@ -1,17 +1,8 @@
-<?php 
-session_start();
-
+<?php session_start();
+//Chargement de la liste des chevaux
 include '../api/config/databaseChevaux.php' ;
-
-
-$sqlferrure = 'SELECT `date`, `Commentaire` FROM `ferrure` WHERE propriétaire = "'.$_SESSION["name"].'" 
-                AND cheval ="'.$_GET['id'].'" 
-                ORDER BY `date` DESC LIMIT 10';
-                $queryResult = $pdo ->query($sqlferrure);
-                $ferrureList = $queryResult ->fetchAll(PDO::FETCH_ASSOC);?>
-
-    
-
+include '../fonction/function.php'
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,14 +17,13 @@ $sqlferrure = 'SELECT `date`, `Commentaire` FROM `ferrure` WHERE propriétaire =
     <title>home</title>
 </head>
 <body>
-<!-- Chargement de la liste des chevaux -->
+
 
 
     <header>
         <div class="container__nav">
 
             <div>
-                <h4>Bienvenue <?=$_SESSION['name']?></h4>
                 <span><?= $_GET['id'] ?> 🐎</span>
             </div>
             <div>
@@ -49,9 +39,9 @@ $sqlferrure = 'SELECT `date`, `Commentaire` FROM `ferrure` WHERE propriétaire =
     </header>
 
     <div class="container__show">
+    <?php $ferrureList = getferrureListe()?>
 
-
-        <?php foreach($ferrureList as $list){?>
+        <?php foreach($ferrureList as $list):?>
     
             <div class="container">
                 <div class="container--chevauxFerrure">
@@ -64,11 +54,7 @@ $sqlferrure = 'SELECT `date`, `Commentaire` FROM `ferrure` WHERE propriétaire =
                 </div>
             </div>
             
-
-
-
-    
-        <?php } ?>
+        <?php endforeach ?>
 
 
     </div>   
@@ -79,7 +65,7 @@ $sqlferrure = 'SELECT `date`, `Commentaire` FROM `ferrure` WHERE propriétaire =
         <?php include '../template/addEventChevaux-tpl.php' ?>
         </div>
         <button class="accordion">+</button>
-        <a href="../home.php?user=<?=$_SESSION['id']?>" target="_blank"><button class="home">&laquo;</button></a>
+        <a href="../home.php?user=<?=$_SESSION['id']?>"><button class="home">&laquo;</button></a>
 <div class="container__date">
     <p><?=date("Y-m-d")?></p>
 </div>

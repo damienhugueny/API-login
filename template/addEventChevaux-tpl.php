@@ -28,14 +28,30 @@
                     <option class="formulaire__opt"  value="">--Selectionner une Catégorie--</option>
 
                     <option class="formulaire__opt" value="ferrure">Ferrure</option>
+                    
+                    <option  class="formulaire__opt" value="vermifuge">Vermifuge</option>
+                    
 
+                </select>
+            </span>
+        </div>
+
+        <div id="contVermifuge" class="container__input container__input__vermifuge">
+            <span>
+                <select class="formulaire" id="addChevalEventChevalTypeVermifuge" name="addChevalEventChevalTypeVermifuge">
+
+                    <option class="formulaire__opt"  value="">--Selectionner un Vermifuge--</option>
+
+                    <?php $vermifugeList =  getVermifugesListe(); ?>
+                    <?php foreach($vermifugeList as $verifuge):?>
+                    <option class="formulaire__opt" value="<?= $verifuge['nom'] ?>"><?= $verifuge['nom'] ?></option>
+                    <?php endforeach ?>
+                  
                 </select>
             </span>
         </div>
         
 
-
-        
             <label for="addChevalEventChevalDate" class="addChevalEventChevalDate">Date</label>
             <div class="container__input">
                 <input class="formulaire" id="addChevalEventChevalDate" name="addChevalEventChevalDate" type="date" class="input">
@@ -50,11 +66,6 @@
     <input type="submit" class="button" value="addEvent">
     
 </form>
-
-<FORM>
-</FORM>
-
-
 
 <?php };?>
 

@@ -21,3 +21,11 @@ CREATE TABLE `ferrure` (
   `date` date NOT NULL DEFAULT CURRENT_DATE ON UPDATE CURRENT_DATE,
   `Commentaire` varchar(1000) NULL
 )
+
+CREATE TABLE `ListVermifuge` (
+  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `nom` varchar(255) NOT NULL,
+  `Matière` varchar(255) NOT NULL,
+  `parasites` varchar(1000) NOT NULL,
+  `tolérance` varchar(1000) NULL
+)

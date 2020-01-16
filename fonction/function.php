@@ -36,6 +36,25 @@ function couleur($nb){
     }
 
 }
+
+// recupere le tableau de la liste des ferrure
+function getferrureListe(){
+    include '../api/config/databaseChevaux.php' ;
+    $sqlferrure = 'SELECT `date`, `Commentaire` FROM `ferrure` WHERE propriétaire = "'.$_SESSION["name"].'" 
+    AND cheval ="'.$_GET['id'].'" 
+    ORDER BY `date` DESC LIMIT 10';
+    $queryResult = $pdo ->query($sqlferrure);
+    return $ferrureList = $queryResult ->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getVermifugesListe(){
+    include '../api/config/databaseChevaux.php' ;
+    $sqlferrure = 'SELECT * FROM `ListVermifuge`';
+    $queryResult = $pdo ->query($sqlferrure);
+    return $VermifugesList = $queryResult ->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
 /*$dateFerrure = "2019-12-01";
 $res= calculDate($dateFerrure);
 var_dump($res);

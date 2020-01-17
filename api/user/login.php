@@ -45,8 +45,6 @@ else{
     exit();
 }
 
-var_dump($_SESSION["name"]);
-
 // make it json format
 print_r(json_encode($user_arr));
 ?>

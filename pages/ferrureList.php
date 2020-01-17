@@ -1,6 +1,6 @@
 <?php session_start();
 //Chargement de la liste des chevaux
-include '../api/config/databaseChevaux.php' ;
+include '../api/config/database.php' ;
 include '../fonction/function.php'
 ?>
 
@@ -37,23 +37,55 @@ include '../fonction/function.php'
         </div>
     <!-- TODO LE MENU-->
     </header>
-
+    
     <div class="container__show">
     <?php $ferrureList = getferrureListe()?>
-
+    <?php $nbcl=1?>
+    
+    <div class="containerTitresListe">
+        <h2>Ferrures</h2>
+    </div>
+    
         <?php foreach($ferrureList as $list):?>
     
-            <div class="container">
+            <div class="container containers<?=$nbcl?>">
                 <div class="container--chevauxFerrure">
                     <div class="container--chevauxFerrure--block">
-                        <span>📅 </span><?=$list['date'];?>
+                        <span>📅</span><?=$list['date'];?>
                     </div>
                     <div class="container--chevauxFerrure--block">
                         <?=$list['Commentaire'];?>
                     </div>
                 </div>
             </div>
-            
+            <?php $nbcl+=1?>
+        <?php endforeach ?>
+    
+
+        <div class="containerTitresListe">
+         <h2>Vermifuges</h2>
+        </div>
+
+        <?php $nbcl=1?>
+        <?php $vermifugeUserList = getVermifugeUserListe()?>
+        <?php foreach($vermifugeUserList as $vermifugeList):?>
+    
+        <div class="container containers<?=$nbcl?>">
+            <div class="container--chevauxFerrure">
+                <div class="container--chevauxFerrure--block">
+                    <span>📅 </span><?=$vermifugeList['date'];?>
+                </div>
+                <div class="container--chevauxFerrure--block">
+                    <?=$vermifugeList['typeVermifuge'];?>
+                </div>
+                <div class="container--chevauxFerrure--block">
+                    <?=$vermifugeList['Commentaire'];?>
+                </div>
+                
+
+            </div>
+        </div>
+        <?php $nbcl+=1?>
         <?php endforeach ?>
 
 
@@ -62,7 +94,10 @@ include '../fonction/function.php'
     <footer>
     <!-- TODO LE FOOTER-->
         <div class="AddCheval">
-        <?php include '../template/addEventChevaux-tpl.php' ?>
+        
+        <?php
+        $chevauxList = getChevalUserList($_SESSION['name']);
+         include '../template/addEventChevaux-tpl.php' ?>
         </div>
         <button class="accordion">+</button>
         <a href="../home.php?user=<?=$_SESSION['id']?>"><button class="home">&laquo;</button></a>

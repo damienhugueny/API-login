@@ -29,3 +29,12 @@ CREATE TABLE `ListVermifuge` (
   `parasites` varchar(1000) NOT NULL,
   `tolérance` varchar(1000) NULL
 )
+
+CREATE TABLE `vermifuge` (
+  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `propriétaire` varchar(255) NOT NULL,
+  `cheval` varchar(255) NOT NULL,
+  `typeVermifuge` varchar(255) NOT NULL,
+  `date` date NOT NULL,
+  `Commentaire` varchar(1000) NULL
+)

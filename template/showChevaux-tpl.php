@@ -1,9 +1,13 @@
 <?php 
 
 include './fonction/function.php';
-
+include './api/config/database.php';
 //affiche la liste des chevaux de user
 $nb=1;
+
+
+$chevauxList =getChevalUserList($_SESSION["name"]);
+
 
 if(!empty($chevauxList)){
     foreach($chevauxList as $chevaux): ?>
@@ -14,17 +18,11 @@ if(!empty($chevauxList)){
         <div class="container--chevaux container<?=$nb?>">
             <a href="./pages/ferrureList.php?id=<?=$chevaux['cheval']?>">
                 <h2><?=$chevaux['cheval']?></h2>
+               
+            <?php $ferrureList = getfirstFerrure($_SESSION["name"],$chevaux['cheval']);?>
 
-                <!--TRIE LA TABLE EN ordre décroissant et affiche la premiere ligne avec LIMIT 1-->
-                <?php $sqlferrure = 'SELECT `date`, `Commentaire` FROM `ferrure` WHERE propriétaire = "'.$_SESSION["name"].'" 
-                AND cheval ="'.$chevaux['cheval'].'" 
-                ORDER BY `date` DESC LIMIT 1';
-                $queryResult = $pdo ->query($sqlferrure);
-                $ferrureList = $queryResult ->fetchAll(PDO::FETCH_ASSOC);
-                
-                ?>
-                
-                <?php foreach($ferrureList as $ferrure):?>
+           <?php foreach($ferrureList as $ferrure):?>
+
                 <?php $re = calculDate($ferrure['date']);?>
                 
                 <div class="container__progressBar">
@@ -40,16 +38,33 @@ if(!empty($chevauxList)){
                         <h4>Dernière ferrure :</h4>
                         <p><?=$ferrure['date']?></p>
                     </div>
+
                 </div>
                     
                 <?php if( pourcentage($re,42)== 100){ ?>
                 <img class="icone--warning" src="./images/warning.png" alt="attention">
                 <?php } ?>
                 <?php endforeach ?>
+
+
+
+                <?php $vermifugeDateList = getVermifugesListelast($_SESSION["name"],$chevaux['cheval']) ?>
+
+                    
+                <div class="container__progressBar">
+                    <div class="container__vermifuge">
+                        <h4>Dernier vermifuge :</h4>
+                        <p><?=$vermifugeDateList['date']?></p>
+                        <p><?=$vermifugeDateList['typeVermifuge']?></p>
+                    </div>
+               </div>
+               
+                
+               
+
             </a>
         </div>
 
-        
         <?php $nb= $nb+1; ?>
         
     <?php endforeach ?>

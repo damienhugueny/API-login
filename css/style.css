@@ -150,8 +150,8 @@ size: 8.6rem;
           transform:scale(0) rotate(0);
 }
 .login-form .group label .icon:after{
-  top:-9px;
-  right:0;
+  top:-25px;
+  right:15px;
   -webkit-transform:scale(0) rotate(0);
           transform:scale(0) rotate(0);
 }
@@ -207,9 +207,10 @@ size: 8.6rem;
   padding: 0 0.6rem;
 }
 
-.container__nav h4{
+.container__nav h4, span{
   margin: 0;
-  font-size: 1em;
+  font-size: 1.4em;
+  text-transform: uppercase;
   
 }
 
@@ -261,6 +262,7 @@ size: 8.6rem;
   
   background-color:#f05d29;
   border: 2px solid white;
+  height: 2.6em;
   border-radius: 5px;
   color: #fff;
 }
@@ -369,6 +371,7 @@ display: block;
 
 .container__progressBar{
   display: flex;
+  text-align: center;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -377,14 +380,21 @@ display: block;
 }
 
 .container__fer{
- padding: 1rem;
+ padding: 1rem 1rem 0rem 1rem;
 }
+
+.container__vermifuge{
+  padding: 0.3rem 0rem 0rem 0rem;
+  text-align: center;
+ }
+ 
+
 
 .icone--warning{
 position: absolute;
 width: 20px;
-top:10px ;
-right: 10px;
+top:0px ;
+right: 1px;
 }
 
 .AddChevaleventList{
@@ -434,4 +444,42 @@ label{
 
 .container__input__vermifuge{
   display: none;
+}
+
+.containers1{
+  border: 0px solid rgb(0, 0, 0);
+  border-radius: 15px;
+  background-color: #f05e291c;
+}
+
+.containerTitresListe{
+  background-color: rgba(0, 0, 0, 0.288);
+  height: 7%;
+  padding-left: 0.6rem;
+  padding-top: 2%;
+  margin-bottom: 0.3rem;
+  border-bottom: 2px solid #f05d29;
+}
+
+.containerTitresListe h2{
+  margin: 0;
+  color: white;
+}
+.container__progressBar p{
+  color: rgba(0, 0, 0, 0.555);
+}
+
+.remove{
+  position: absolute;
+  height: 4.5rem;
+  width: 4.5rem;
+  
+  border-radius: 50px 50px 0px 50px;
+  background-color: white;
+  color: #f05d29;
+  border: 5px solid #f05d29;
+  font-weight:bold;
+  font-size: 3rem;
+  left: 0px;
+  bottom: 20px;
 }

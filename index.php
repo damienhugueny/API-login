@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -8,7 +7,7 @@
   
   
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans:600'>
-      <link rel="stylesheet" href="./css/style.css">
+      <link rel="stylesheet" href="css/style.css">
   
 </head>
 <body>

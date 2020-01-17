@@ -5,10 +5,11 @@
     }
     
     if($_GET['user']!== $_SESSION['id']){
-        echo '<p>'."erreur".'</p>';
+        echo '<p>'."Ooopsss une petite erreur".'</p>';
+        ?> <a href="index.php">retour à la page Login</a><?php
        return;} ?>
     
-<?php include './api/config/databaseChevaux.php' ?>
+
 <?php require './template/header-tpl.php' ?>
 
 
@@ -22,7 +23,7 @@
 
             <?php //include 'template/addChevaux-tpl.php' ?>
             
-            <?php //include './template/showRemove-tpl.php' ?>
+            
 
             <?php //include './template/addEventChevaux-tpl.php' ?>
         </main>
@@ -33,8 +34,10 @@
     <!-- TODO LE FOOTER-->
         <div class="AddCheval">
         <?php include 'template/addChevaux-tpl.php' ?>
+        <?php include './template/showRemove-tpl.php'?>
         </div>
         <button class="accordion">+</button>
+        <button class="remove">-</button>
         <div class="container__date">
         <p><?=date("Y-m-d")?></p>
         </div>

@@ -24,10 +24,17 @@ if($stmt->rowCount() > 0){
         "id" => $row['id'],
         "username" => $row['username']
     );
-    //REDIRECTION VERS PAGE PROTEGER
-    header('Location: https://www.google.com/');
-    exit();
 
+    
+    //REDIRECTION VERS PAGE PROTEGER
+    session_start();
+    session_regenerate_id();
+    $_SESSION['id']=session_id();
+    $_SESSION["name"]=$row['username'];
+    header('Location: ../../home.php?user='.session_id());
+  
+ 
+    
 }
 else{
     $user_arr=array(
@@ -37,6 +44,7 @@ else{
     header('Location: ../../index.php');
     exit();
 }
+
 // make it json format
 print_r(json_encode($user_arr));
 ?>

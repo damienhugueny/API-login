@@ -1,4 +1,3 @@
-<?php session_start()?>
 
 <!DOCTYPE html>
 <html lang="en" >
@@ -8,14 +7,14 @@
   
   
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans:600'>
-      <link rel="stylesheet" href="./css/style.css">
+      <link rel="stylesheet" href="css/style.css">
   
 </head>
 <body>
   <div class="login-wrap">
   <div class="login-html">
-    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
-    <input id="tab-2" type="radio" name="tab" class="sign-up"><label  for="tab-2" class="tab">Sign Up</label>
+    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">s'identifier</label>
+    <input id="tab-2" type="radio" name="tab" class="sign-up"><label  for="tab-2" class="tab">S'inscrire</label>
     <div class="login-form">
       <form class="sign-in-htm" action="./api/user/login.php" method="POST">
         <div class="group">
@@ -31,7 +30,7 @@
           <label for="check"><span class="icon"></span> Keep me Signed in</label>
         </div>
         <div class="group">
-          <input type="submit" class="button" value="Sign In">
+          <input type="submit" class="button" value="s'identifier">
         </div>
         <div class="hr"></div>
         <div class="foot-lnk">
@@ -53,7 +52,7 @@
           <input id="pass-sub" type="password" class="input" data-type="password">
         </div>
         <div class="group">
-          <input type="submit" class="button" value="Sign Up">
+          <input type="submit" class="button" value="S'inscrire">
         </div>
         <div id="erreur_log" class="hr">
          

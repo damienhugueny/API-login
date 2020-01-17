@@ -7,6 +7,7 @@
         let form_sign_up = document.querySelector('#form_sign-up')
         let password = document.querySelector('#password-sub').value
         let pass = document.querySelector('#pass-sub').value
+        let username = document.querySelector('#username').value
    
         
         console.log(password)
@@ -16,11 +17,13 @@
         let regex1 = /^[a-zA-Z0-9_-]{8,25}$/
         let regexPass = regex1.test(pass)
         let regexpassword = regex1.test(password)
+        let regexUsername = regex1.test(username)
+
 
         console.log(regexPass)
         console.log(regexpassword)
         
-        if(regexPass === true && regexpassword === true){
+        if(regexPass === true && regexpassword === true && regexUsername === true){
 
             if (password === pass){
                 //on met le lien si ok pour ne pas le voir dans la page

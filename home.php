@@ -34,6 +34,8 @@
     <!-- TODO LE FOOTER-->
         <div class="AddCheval">
         <?php include 'template/addChevaux-tpl.php' ?>
+        </div>
+        <div class="removeCheval"> 
         <?php include './template/showRemove-tpl.php'?>
         </div>
         <button class="accordion">+</button>

@@ -1,7 +1,7 @@
 
 <?php if(!empty($chevauxList)){?>
 
-<form action="../api/cheval/addChevalEvent.php" method="POST">
+<form action="../controller/EventController.php" method="POST">
         
         <label for="addChevalEventCheval" >AJOUTER un événement
 

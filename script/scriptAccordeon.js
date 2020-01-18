@@ -1,7 +1,13 @@
 let event = document.querySelector(".accordion");
     event.addEventListener("click", function() {
-        
-        document.querySelector(".AddCheval").classList.toggle("active");});
+    document.querySelector(".AddCheval").classList.toggle("active");
+    document.querySelector(".removeCheval").classList.remove("active");});
+
+let eventremove = document.querySelector(".remove");
+    eventremove.addEventListener("click", function() {
+    document.querySelector(".removeCheval").classList.toggle("active");
+    document.querySelector(".AddCheval").classList.remove("active");});
+ 
 
 
         

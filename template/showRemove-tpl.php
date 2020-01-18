@@ -1,7 +1,7 @@
 
 <?php if(!empty($chevauxList)){?>
 
-    <form action="./api/cheval/removeCheval.php" method="POST">
+    <form action="./controller/EventController.php" method="POST">
             
             <label for="removeCheval" >SUPPRIMER</label>
             <select id="removeCheval" name="removeCheval">

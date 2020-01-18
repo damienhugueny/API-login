@@ -278,7 +278,7 @@ body{
   
 }
 
-.AddCheval{
+.AddCheval, .removeCheval {
   padding: 0 18px;
   background-color: #f05d29;
   display: none;

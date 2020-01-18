@@ -2,7 +2,7 @@
 
   
 
-<form class="sign-in-htm" action="./api/cheval/addCheval.php" method="POST">
+<form class="sign-in-htm" action="../controller/EventController.php" method="POST">
         <div class="group">
           <label for="chevalname" class="label"> Entrez le nom du cheval à ajouter</label>
           <div>

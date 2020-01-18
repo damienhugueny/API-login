@@ -1,10 +1,4 @@
-<?php 
-
-
-
-
-
-//calcul de la différence entre 2 dates
+<?php //calcul de la différence entre 2 dates
 function calculDate($dateFerrure){
     $datetime2 = date_create(date("Y-m-d")); 
     $datetime1 = date_create($dateFerrure); 
@@ -107,6 +101,61 @@ function getfirstFerrure($name,$cheval){
     ORDER BY `date` DESC LIMIT 1';
     $queryResult = $pdo ->query($sql);
     return $ferrureList = $queryResult ->fetchAll(PDO::FETCH_ASSOC);
+    
+}
+
+class Event{
+
+    function addCheval(){
+        $database = new Database();
+        $pdo = $database->getConnection();
+        $sqlinsert = 'INSERT INTO chevaux (propriétaire, cheval)VALUE ("'.$_SESSION["name"].'","'.$_POST["chevalname"].'")';
+        $pdo ->query($sqlinsert);
+       
+    }
+
+    function removeCheval(){
+        $database = new Database();
+        $pdo = $database->getConnection();
+
+        if($_POST['removeCheval'] != "--Selectionner un cheval--"){
+
+        $sqlremove = 'DELETE FROM chevaux WHERE propriétaire = "'.$_SESSION["name"].'" AND cheval ="'.$_POST["removeCheval"].'"';
+        $pdo ->query($sqlremove);
+        // supprime aussi les donnée dans la base ferrure
+        $sqlremove = 'DELETE FROM ferrure WHERE propriétaire = "'.$_SESSION["name"].'" AND cheval ="'.$_POST["removeCheval"].'"';
+        $pdo ->query($sqlremove);
+        }
+    }
+    
+function AddEventCheval(){
+
+    $database = new Database();
+    $pdo = $database->getConnection();
+    $_POST['addChevalEventChevalTypeVermifuge'] == ""? $test= true: $test=false;
+
+    if($_POST['addChevalEventChevalType']== "ferrure" || $_POST['addChevalEventChevalType']== "vermifuge"){
+   
+        if($_POST['addChevalEventChevalType']== "ferrure"){
+            $sqlinsert = 'INSERT INTO ferrure (propriétaire, cheval, `date`, Commentaire)
+            VALUE ("'.$_SESSION["name"].'","'.$_POST["addChevalEventCheval"].'",
+            "'.$_POST["addChevalEventChevalDate"].'","'.$_POST["addChevalEventChevalCom"].'")';
+            $pdo ->query($sqlinsert);
+        }
+        
+        if($_POST['addChevalEventChevalType']== "vermifuge" && $test == false){
+            $sqlinsert = 'INSERT INTO vermifuge (propriétaire, cheval, typeVermifuge,`date`, Commentaire)
+            VALUE ("'.$_SESSION["name"].'","'.$_POST["addChevalEventCheval"].'","'.$_POST["addChevalEventChevalTypeVermifuge"].'",
+            "'.$_POST["addChevalEventChevalDate"].'","'.$_POST["addChevalEventChevalCom"].'")';
+            $pdo ->query($sqlinsert);
+        }
+        
+    }
+
+}
+
+
+    
     
 }
 
